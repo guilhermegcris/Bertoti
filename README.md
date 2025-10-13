@@ -21,6 +21,34 @@ Exemplo 3: Custo e Escalabilidade
 É possível criar um sistema capaz de suportar milhões de usuários, porém o nível exigido de infraestrutura e arquitetura serão amplamente mais custosos do que um sistema mais simples que suporta um número menos de pessoas
 
 #4. Fazer 2 ou 3 exemplos de classes UML:
+Exemplo 1:
+---------------------
+|       Aluno       |
+---------------------
+| - nome: String     |
+| - matricula: int   |
+| - nota1: double    |
+| - nota2: double    |
+---------------------
+| + calcularMedia(): double |
+| + verificarAprovacao(): boolean |
+---------------------
+
+Exemplo 2: 
+
+|        Produto         |
+
+| - idProduto: int        |
+| - nome: String          |
+| - preco: double         |
+| - estoque: int          |
+--------------------------
+| + atualizarEstoque(qtd: int): void |
+| + calcularDesconto(porc: double): double |
+| + exibirInfo(): void                |
+--------------------------
+
+
 
 #5. Fazer esses exemplos de UML em JAVA:
    
