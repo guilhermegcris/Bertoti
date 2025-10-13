@@ -7,7 +7,7 @@ O texto fala sobre as diferenças entre a engenharia de Software, Programação 
 
 #2. Comentar com suas palavras o segundo trecho do livro Software Engineering at Google, Oreilly:
 
-O texto explica fala novamente que a engenharia de software não é só escrever código, acrescentando que envolve todas as ferramentas, processos e práticas que podem ajudar uma empresa a criar e manter esse código ao longo do tempo. O foco é garantir que o software continue útil, sustentável e de qualidade, mesmo com as mudanças inevitáveis. Além disso, é destacado que a engenharia de software pode ser vista como “programação ao longo do tempo”. O texto também apresenta três princípios fundamentais que toda equipe de software deve considerar, que são tempo e mudança, escala e crescimento e custos e compensações. Por fim, é mostrado que a engenharia de software é sobre pensar no futuro, buscando práticas que tornem o código durável, escalável e sustentável.
+O texto fala novamente que a engenharia de software não é só sobre escrever códigos, acrescentando o fato de que envolve todas as ferramentas, processos e práticas que podem ajudar uma empresa a criar e manter esse código ao longo do tempo. O foco é garantir que o software continue útil, sustentável e de qualidade, mesmo com as mudanças, quaisquer que sejam. Além disso, é destacado que a engenharia de software pode ser vista como “programação ao longo do tempo”. O texto também apresenta três princípios fundamentais que toda equipe de software deve considerar, que são tempo e mudança, escala e crescimento e custos e compensações. Por fim, é mostrado que a engenharia de software é sobre pensar no futuro, buscando práticas que tornem o código durável, escalável e sustentável.
 
 #3. Listar e explicar 3 exemplos de tradeoffs:
 
@@ -228,4 +228,55 @@ System.out.println("=== TESTES DE PRODUTO ===");
     }
 }
 
-7.
+#7. Transformar o exemplo de JAVA em SQLite:
+
+-- ===============================
+-- Tabela: Usuario
+-- ===============================
+CREATE TABLE Usuario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    senha TEXT NOT NULL
+);
+
+-- ===============================
+-- Tabela: Livro
+-- ===============================
+CREATE TABLE Livro (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    autor TEXT NOT NULL,
+    ano_publicacao INTEGER,
+    disponivel BOOLEAN DEFAULT 1
+);
+
+-- ===============================
+-- Tabela: Biblioteca
+-- ===============================
+CREATE TABLE Biblioteca (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    endereco TEXT,
+    telefone TEXT
+);
+
+-- ===============================
+-- Tabela: Emprestimo (tabela relacional sugerida)
+-- ===============================
+-- Observação: caso o código da Biblioteca relacione Livros e Usuários
+-- (o que é comum), aqui está uma tabela de ligação para gerenciar empréstimos.
+
+CREATE TABLE Emprestimo (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idUsuario INTEGER NOT NULL,
+    idLivro INTEGER NOT NULL,
+    dataEmprestimo DATE NOT NULL,
+    dataDevolucao DATE,
+    devolvido BOOLEAN DEFAULT 0,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(id),
+    FOREIGN KEY (idLivro) REFERENCES Livro(id)
+);
+
+
+#8. Usar ollama4j
