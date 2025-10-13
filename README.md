@@ -179,3 +179,53 @@ Exemplo 2:
     }
 
 #6. Fazer testes customizados:
+
+Teste para alunos:
+
+public class TesteAluno {
+    public static void main(String[] args) {
+    // Criando objetos Aluno com dados fixos
+        Aluno aluno1 = new Aluno("Maria Silva", 101, 8.5, 7.0);
+        Aluno aluno2 = new Aluno("João Pereira", 102, 5.0, 4.5);
+        Aluno aluno3 = new Aluno("Ana Costa", 103, 9.0, 9.5);
+
+   // Para exibir os resultados
+        System.out.println("=== TESTES DE ALUNO ===");
+        aluno1.exibirInfo();
+        aluno2.exibirInfo();
+        aluno3.exibirInfo();
+
+   }
+}
+
+
+Teste para produtos:
+
+public class TesteProduto {
+    public static void main(String[] args) {
+        // Criando produtos
+        Produto p1 = new Produto(1, "Notebook", 3500.00, 10);
+        Produto p2 = new Produto(2, "Mouse Gamer", 150.00, 50);
+
+System.out.println("=== TESTES DE PRODUTO ===");
+        p1.exibirInfo();
+        p2.exibirInfo();
+
+//Teste de atualização de estoque
+        System.out.println("\nAdicionando 5 unidades ao estoque do Notebook...");
+        p1.atualizarEstoque(5);
+        p1.exibirInfo();
+
+//Teste de desconto
+        System.out.println("\nAplicando 10% de desconto no Mouse Gamer...");
+        double novoPreco = p2.calcularDesconto(10);
+        System.out.println("Preço com desconto: R$ " + novoPreco);
+
+//Teste combinado
+        System.out.println("\nResumo Final:");
+        p1.exibirInfo();
+        p2.exibirInfo();
+    }
+}
+
+7.
