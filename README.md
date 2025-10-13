@@ -22,17 +22,17 @@ Exemplo 3: Custo e Escalabilidade
 
 #4. Fazer 2 ou 3 exemplos de classes UML:
 Exemplo 1:
----------------------
-|       Aluno       |
----------------------
-| - nome: String     |
-| - matricula: int   |
-| - nota1: double    |
-| - nota2: double    |
----------------------
-| + calcularMedia(): double |
-| + verificarAprovacao(): boolean |
----------------------
+
+      Aluno       
+
+ - nome: String     
+ - matricula: int   
+ - nota1: double    
+ - nota2: double    
+
+ + calcularMedia(): double 
+ + verificarAprovacao(): boolean
+
 
 Exemplo 2: 
 
