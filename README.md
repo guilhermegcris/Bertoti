@@ -1,4 +1,4 @@
-#&# Engenharia de Software
+### Engenharia de Software
 ## Atividades 1 a 8
 
 #1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly:
