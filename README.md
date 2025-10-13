@@ -23,33 +23,91 @@ Exemplo 3: Custo e Escalabilidade
 #4. Fazer 2 ou 3 exemplos de classes UML:
 Exemplo 1:
 
-      Aluno       
+Classe: Aluno       
 
- - nome: String     
- - matricula: int   
- - nota1: double    
- - nota2: double    
+ - nome: String
+ - matricula: int
+ - nota1: double
+ - nota2: double
 
- + calcularMedia(): double 
+ + calcularMedia(): double
  + verificarAprovacao(): boolean
 
 
 Exemplo 2: 
 
-|        Produto         |
+Classe: Produto
 
-| - idProduto: int        |
-| - nome: String          |
-| - preco: double         |
-| - estoque: int          |
---------------------------
-| + atualizarEstoque(qtd: int): void |
-| + calcularDesconto(porc: double): double |
-| + exibirInfo(): void                |
---------------------------
+- idProduto: int
+- nome: String 
+- preco: double
+- estoque: int
 
-
++ atualizarEstoque(qtd: int): void
++ calcularDesconto(porc: double): double
++ exibirInfo(): void
+  
 
 #5. Fazer esses exemplos de UML em JAVA:
+
+Exemplo 1:
+import java.util.Scanner;
+
+public class Aluno {
+    private String nome;
+    private int matricula;
+    private double nota1;
+    private double nota2;
+
+
+    public Aluno(String nome, int matricula, double nota1, double nota2) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+    }
+
+    public double calcularMedia() {
+        return (nota1 + nota2) / 2;
+    }
+
+    public boolean verificarAprovacao() {
+        return calcularMedia() >= 6.0;
+    }
+    
+    public void exibirInfo() {
+        System.out.println("\n--- Dados do Aluno ---");
+        System.out.println("Nome: " + nome);
+        System.out.println("Matrícula: " + matricula);
+        System.out.println("Nota 1: " + nota1);
+        System.out.println("Nota 2: " + nota2);
+        System.out.println("Média: " + calcularMedia());
+        System.out.println("Situação: " + (verificarAprovacao() ? "Aprovado" : "Reprovado"));
+    }
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Digite o nome do aluno: ");
+        String nome = input.nextLine();
+
+        System.out.print("Digite a matrícula: ");
+        int matricula = input.nextInt();
+
+        System.out.print("Digite a primeira nota: ");
+        double nota1 = input.nextDouble();
+
+        System.out.print("Digite a segunda nota: ");
+        double nota2 = input.nextDouble();
+
+
+        Aluno aluno = new Aluno(nome, matricula, nota1, nota2);
+        
+        aluno.exibirInfo();
+
+        input.close();
+    }
+}
+
    
 #6. Fazer testes customizados:
