@@ -187,8 +187,9 @@ Exemplo 2:
 
 Teste para alunos:
 ```mermaid
-public class TesteAluno {
-    public static void main(String[] args) {
+classDiagram
+class TesteAluno {
+    // public static void main(String[] args) 
     // Criando objetos Aluno com dados fixos
         Aluno aluno1 = new Aluno("Maria Silva", 101, 8.5, 7.0);
         Aluno aluno2 = new Aluno("João Pereira", 102, 5.0, 4.5);
@@ -199,18 +200,17 @@ public class TesteAluno {
         aluno1.exibirInfo();
         aluno2.exibirInfo();
         aluno3.exibirInfo();
-
-   }
 }
-
+```
 
 Teste para produtos:
-
-public class TesteProduto {
-    public static void main(String[] args) {
+```mermaid
+classDiagram
+class TesteProduto {
+    public static void main(String[] args) 
         // Criando produtos
         Produto p1 = new Produto(1, "Notebook", 3500.00, 10);
-        Produto p2 = new Produto(2, "Mouse Gamer", 150.00, 50);
+        Produto p2 = new Produto(2, "Mouse", 150.00, 50);
 
 System.out.println("=== TESTES DE PRODUTO ===");
         p1.exibirInfo();
@@ -230,9 +230,8 @@ System.out.println("=== TESTES DE PRODUTO ===");
         System.out.println("\nResumo Final:");
         p1.exibirInfo();
         p2.exibirInfo();
-    }
 }
-
+```
 #7. Transformar o exemplo de JAVA em SQLite:
 
 -- ===============================
