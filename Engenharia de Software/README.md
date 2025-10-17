@@ -23,170 +23,185 @@ Exemplo 3: Custo e Escalabilidade
 #4. Fazer 2 ou 3 exemplos de classes UML:
 ```mermaid
 classDiagram
+class Escola{
+- String nome
+- double notaAluno
+- int numeroClasse
+getnome() String
+getnotaAluno() double
+getnumeroClasse() int
+}
+
 class Aluno{       
 
- - String nome 
+ - String nomeAluno 
  - int matricula
- - double nota1 
- - double nota2
+ - String aprovacao
 
 getnome() String
-getmatricula() Int
-getnota1() double
-getnota2() double
-
- + calcularMedia() double
- + verificarAprovacao() boolean
+getmatricula() int
+getaprovacao() String
 }
- 
 
-class Produto{
+class Professor{
 
-- int idProduto
-- String nome  
-- double preco 
-- int estoque 
+- String nomeProfessor
+- int raProfessor
+- double salario  
 
-+ atualizarEstoque(qtd: int) void
-+ calcularDesconto(porc: double) double
-+ exibirInfo() void
+getnomeProfessor() String
+getraProfessor() int
+getsalario() double
 }
+Escola "01" --> "0.." Aluno: Matricula
+Escola "01" --> "0.." Professor: Contrata
 ```  
 
+
 #5. Fazer esses exemplos de UML em JAVA:
+```mermaid
+package org.example;
 
-Exemplo 1:
+import java.util.ArrayList;
+import java.util.List;
 
-    import java.util.Scanner;
-    
-    public class Aluno {
+class Escola {
     private String nome;
+    private double notaAluno;
+    private int numeroClasse;
+
+    // Listas de alunos e professores
+    private List<Aluno> alunos;
+    private List<Professor> professores;
+
+    // Construtor
+    public Escola(String nome, double notaAluno, int numeroClasse) {
+        this.nome = nome;
+        this.notaAluno = notaAluno;
+        this.numeroClasse = numeroClasse;
+        this.alunos = new ArrayList<>();
+        this.professores = new ArrayList<>();
+    }
+
+    // Métodos getters
+    public String getNome() {
+        return nome;
+    }
+
+    public double getNotaAluno() {
+        return notaAluno;
+    }
+
+    public int getNumeroClasse() {
+        return numeroClasse;
+    }
+
+    // Métodos para gerenciar relacionamentos
+    public void adicionarAluno(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    public void contratarProfessor(Professor professor) {
+        professores.add(professor);
+    }
+
+    public void listarAlunos() {
+        System.out.println("Alunos da escola " + nome + ":");
+        for (Aluno a : alunos) {
+            System.out.println("- " + a.getNomeAluno());
+        }
+    }
+
+    public void listarProfessores() {
+        System.out.println("Professores da escola " + nome + ":");
+        for (Professor p : professores) {
+            System.out.println("- " + p.getNomeProfessor());
+        }
+    }
+}
+
+class Aluno {
+    private String nomeAluno;
     private int matricula;
-    private double nota1;
-    private double nota2;
+    private String aprovacao;
 
-
-    public Aluno(String nome, int matricula, double nota1, double nota2) {
-        this.nome = nome;
+    // Construtor
+    public Aluno(String nomeAluno, int matricula, String aprovacao) {
+        this.nomeAluno = nomeAluno;
         this.matricula = matricula;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
+        this.aprovacao = aprovacao;
     }
 
-    public double calcularMedia() {
-        return (nota1 + nota2) / 2;
+    // Métodos getters
+    public String getNomeAluno() {
+        return nomeAluno;
     }
 
-    public boolean verificarAprovacao() {
-        return calcularMedia() >= 6.0;
+    public int getMatricula() {
+        return matricula;
     }
-    
-    public void exibirInfo() {
-        System.out.println("\n--- Dados do Aluno ---");
-        System.out.println("Nome: " + nome);
-        System.out.println("Matrícula: " + matricula);
-        System.out.println("Nota 1: " + nota1);
-        System.out.println("Nota 2: " + nota2);
-        System.out.println("Média: " + calcularMedia());
-        System.out.println("Situação: " + (verificarAprovacao() ? "Aprovado" : "Reprovado"));
+
+    public String getAprovacao() {
+        return aprovacao;
     }
-    
+}
+
+class Professor {
+    private String nomeProfessor;
+    private int raProfessor;
+    private double salario;
+
+    // Construtor
+    public Professor(String nomeProfessor, int raProfessor, double salario) {
+        this.nomeProfessor = nomeProfessor;
+        this.raProfessor = raProfessor;
+        this.salario = salario;
+    }
+
+    // Métodos getters
+    public String getNomeProfessor() {
+        return nomeProfessor;
+    }
+
+    public int getRaProfessor() {
+        return raProfessor;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+}
+
+public class SistemaEscolar {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        // Criando escola
+        Escola escola = new Escola("Escola Modelo", 8.5, 101);
 
-        System.out.print("Digite o nome do aluno: ");
-        String nome = input.nextLine();
+        // Criando alunos
+        Aluno a1 = new Aluno("Guilherme", 123, "Aprovado");
+        Aluno a2 = new Aluno("Ana", 124, "Reprovada");
 
-        System.out.print("Digite a matrícula: ");
-        int matricula = input.nextInt();
+        // Criando professores
+        Professor p1 = new Professor("Marcos", 2001, 3500.0);
+        Professor p2 = new Professor("Luciana", 2002, 4200.0);
 
-        System.out.print("Digite a primeira nota: ");
-        double nota1 = input.nextDouble();
+        // Adicionando alunos e professores à escola
+        escola.adicionarAluno(a1);
+        escola.adicionarAluno(a2);
+        escola.contratarProfessor(p1);
+        escola.contratarProfessor(p2);
 
-        System.out.print("Digite a segunda nota: ");
-        double nota2 = input.nextDouble();
-
-
-        Aluno aluno = new Aluno(nome, matricula, nota1, nota2);
-        
-        aluno.exibirInfo();
-
-        input.close();
-     }
-     }
-
-Exemplo 2:
-
-    import java.util.Scanner;
-    
-    public class Produto {
-    private int idProduto;
-    private String nome;
-    private double preco;
-    private int estoque;
-
-
-    public Produto(int idProduto, String nome, double preco, int estoque) {
-        this.idProduto = idProduto;
-        this.nome = nome;
-        this.preco = preco;
-        this.estoque = estoque;
+        // Exibindo resultados
+        escola.listarAlunos();
+        escola.listarProfessores();
     }
+}
 
-    public void atualizarEstoque(int qtd) {
-        estoque += qtd;
-    }
-
-    public double calcularDesconto(double porcentagem) {
-        return preco - (preco * (porcentagem / 100));
-    }
-
-    public void exibirInfo() {
-        System.out.println("\n--- Dados do Produto ---");
-        System.out.println("ID: " + idProduto);
-        System.out.println("Nome: " + nome);
-        System.out.println("Preço: R$ " + preco);
-        System.out.println("Estoque: " + estoque + " unidades");
-    }
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Digite o ID do produto: ");
-        int id = input.nextInt();
-        input.nextLine(); // limpar buffer
-
-        System.out.print("Digite o nome do produto: ");
-        String nome = input.nextLine();
-
-        System.out.print("Digite o preço: ");
-        double preco = input.nextDouble();
-
-        System.out.print("Digite a quantidade em estoque: ");
-        int estoque = input.nextInt();
-
-        Produto produto = new Produto(id, nome, preco, estoque);
-
-        produto.exibirInfo();
-        
-        System.out.print("\nDeseja adicionar quantas unidades ao estoque? ");
-        int qtd = input.nextInt();
-        produto.atualizarEstoque(qtd);
-
-        System.out.print("Digite o percentual de desconto (%): ");
-        double desconto = input.nextDouble();
-
-        System.out.println("\nPreço com desconto: R$ " + produto.calcularDesconto(desconto));
-        produto.exibirInfo();
-
-        input.close();
-    }      
-    }
 
 #6. Fazer testes customizados:
 
 Teste para alunos:
-```mermaid
+
 classDiagram
 class TesteAluno {
     // public static void main(String[] args) 
@@ -201,10 +216,10 @@ class TesteAluno {
         aluno2.exibirInfo();
         aluno3.exibirInfo();
 }
-```
+
 
 Teste para produtos:
-```mermaid
+
 classDiagram
 class TesteProduto {
     public static void main(String[] args) 
@@ -231,7 +246,7 @@ System.out.println("=== TESTES DE PRODUTO ===");
         p1.exibirInfo();
         p2.exibirInfo();
 }
-```
+
 #7. Transformar o exemplo de JAVA em SQLite:
 
 -- ===============================
