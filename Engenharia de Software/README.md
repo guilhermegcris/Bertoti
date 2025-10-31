@@ -1,27 +1,45 @@
 ### Engenharia de Software
 ## Atividades 1 a 8
  
-<h1> #1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly: </h1>>
+<h1> #1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly: </h1>
 
 O texto fala sobre as diferenças entre a engenharia de Software, Programação e Ciência da Computação, explicando principalmente que engenharia de software não se trata só de programar, já que esse segundo termo se refere mais especificamente a escrever código, enquanto o primeiro envolve aplicar conhecimento teórico e boas práticas para construir sistemas mais duradouros e confiáveis. Ele também faz uma comparação entre engenheiros de software com engenheiros de áreas tradicionais, que seguem regras e padrões rigorosos, e destaca que a área tecnológica possui mais falhas quanto à seguimento de processos e prosseguimento de métodos padrões. O texto também enfatiza que os softwares têm se tornado essenciais na sociedade, sendo cada vez mais importante adotar métodos mais rigorosos e profissionais, semelhantes aos de outras engenharias, explicando também que a produção dos demais engenheiros é mais "tangível", enquanto o trabalho do engenheiro de Software é inacessível de maneira física. O texto sugere no fim que o objetivo do livro é mostrar possibilidades para tornar o desenvolvimento de software mais confiável e estruturado, contribuindo para a evolução da profissão.
 
 <h1> #2. Comentar com suas palavras o segundo trecho do livro Software Engineering at Google, Oreilly: </h1>
 
-O texto fala novamente que a engenharia de software não é só sobre escrever códigos, acrescentando o fato de que envolve todas as ferramentas, processos e práticas que podem ajudar uma empresa a criar e manter esse código ao longo do tempo. O foco é garantir que o software continue útil, sustentável e de qualidade, mesmo com as mudanças, quaisquer que sejam. Além disso, é destacado que a engenharia de software pode ser vista como “programação ao longo do tempo”. O texto também apresenta três princípios fundamentais que toda equipe de software deve considerar, que são tempo e mudança, escala e crescimento e custos e compensações. Por fim, é mostrado que a engenharia de software é sobre pensar no futuro, buscando práticas que tornem o código durável, escalável e sustentável.
+O texto fala novamente que a engenharia de software não é só sobre escrever códigos, acrescentando o fato de que envolve todas as ferramentas, processos e práticas que podem ajudar uma empresa a criar e manter esse código ao longo do tempo. O foco é garantir que o software continue útil, sustentável e de qualidade, mesmo com as mudanças, quaisquer que sejam. Além disso, é destacado que a engenharia de software pode ser vista como “programação ao longo do tempo”. 
+O texto também apresenta três princípios fundamentais que toda equipe de software deve considerar, que são tempo e mudança, escala e crescimento e custos e compensações.
+
+1. Tempo e mudança
+-O primeiro princípio parte da ideia de que todo software está em constante evolução.
+Um programa não é algo estático, ele precisa mudar ao longo do tempo. Em engenharia de software, reconhecer a inevitabilidade da mudança é essencial. Por isso, o código deve ser escrito de forma que possa ser modificado com segurança e eficiência no futuro.
+
+2. Escala e crescimento
+-Em seguida, entende-se que esse princípio trata da complexidade crescente do software e das equipes. Conforme o sistema cresce, tanto em número de usuários quanto em quantidade de código, surgem novos desafios, como desempenho, coordenação entre equipes, manutenção e segurança. Destaca-se então que as soluções que funcionam em pequena escala podem se tornar insustentáveis em larga escala.
+
+3. Custos e compensações
+-Nesse princípio, é entendido que melhorar a performance pode aumentar o custo, enquanto simplificar o código pode reduzir a flexibilidade e lançar de maneira mais rápida pode comprometer a qualidade.
+
+Por fim, é mostrado que a engenharia de software é sobre pensar no futuro, buscando práticas que tornem o código durável, escalável e sustentável.
 
 <h1> #3. Listar e explicar 3 exemplos de tradeoffs: </h1>
 
 Exemplo 1: Armazenamento local e Processamento em nuvem
+
 É possível armazenar dados no dispositivo utilizado e será mais rápido e privado, porém exige mais recursos no processamento desses dados. Também é possível usar a nuvem para deixar o processamento mais leve, dependendo assim da internet.
 
 Exemplo 2: Generalização e Simplicidade
+
 É possível criar sistemas muito genéricos, mas pode haver maiores complicações no desenvolvimento do código de maneira desnecessaria, exigindo um grau de dificuldade maior do que o sistema que é feito para ser simples e resolver um problema pontual.
 
 Exemplo 3: Custo e Escalabilidade
+
 É possível criar um sistema capaz de suportar milhões de usuários, porém o nível exigido de infraestrutura e arquitetura serão amplamente mais custosos do que um sistema mais simples que suporta um número menos de pessoas
 
 <h1> #4. Fazer 2 ou 3 exemplos de classes UML: </h1>
+
 ```mermaid
+
 classDiagram
 class Escola{
 - String nome
@@ -59,7 +77,9 @@ Escola "01" --> "0.." Professor: Contrata
 
 
 <h1> #5. Fazer esses exemplos de UML em JAVA: </h1>
+
 ```markdown
+
 package org.example;
 
 import java.util.ArrayList;
