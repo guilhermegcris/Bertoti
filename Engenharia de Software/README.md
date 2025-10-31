@@ -1,15 +1,15 @@
 ### Engenharia de Software
 ## Atividades 1 a 8
-
-#1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly:
+ 
+<h1> #1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly: </h1>>
 
 O texto fala sobre as diferenças entre a engenharia de Software, Programação e Ciência da Computação, explicando principalmente que engenharia de software não se trata só de programar, já que esse segundo termo se refere mais especificamente a escrever código, enquanto o primeiro envolve aplicar conhecimento teórico e boas práticas para construir sistemas mais duradouros e confiáveis. Ele também faz uma comparação entre engenheiros de software com engenheiros de áreas tradicionais, que seguem regras e padrões rigorosos, e destaca que a área tecnológica possui mais falhas quanto à seguimento de processos e prosseguimento de métodos padrões. O texto também enfatiza que os softwares têm se tornado essenciais na sociedade, sendo cada vez mais importante adotar métodos mais rigorosos e profissionais, semelhantes aos de outras engenharias, explicando também que a produção dos demais engenheiros é mais "tangível", enquanto o trabalho do engenheiro de Software é inacessível de maneira física. O texto sugere no fim que o objetivo do livro é mostrar possibilidades para tornar o desenvolvimento de software mais confiável e estruturado, contribuindo para a evolução da profissão.
 
-#2. Comentar com suas palavras o segundo trecho do livro Software Engineering at Google, Oreilly:
+<h1> #2. Comentar com suas palavras o segundo trecho do livro Software Engineering at Google, Oreilly: </h1>
 
 O texto fala novamente que a engenharia de software não é só sobre escrever códigos, acrescentando o fato de que envolve todas as ferramentas, processos e práticas que podem ajudar uma empresa a criar e manter esse código ao longo do tempo. O foco é garantir que o software continue útil, sustentável e de qualidade, mesmo com as mudanças, quaisquer que sejam. Além disso, é destacado que a engenharia de software pode ser vista como “programação ao longo do tempo”. O texto também apresenta três princípios fundamentais que toda equipe de software deve considerar, que são tempo e mudança, escala e crescimento e custos e compensações. Por fim, é mostrado que a engenharia de software é sobre pensar no futuro, buscando práticas que tornem o código durável, escalável e sustentável.
 
-#3. Listar e explicar 3 exemplos de tradeoffs:
+<h1> #3. Listar e explicar 3 exemplos de tradeoffs: </h1>
 
 Exemplo 1: Armazenamento local e Processamento em nuvem
 É possível armazenar dados no dispositivo utilizado e será mais rápido e privado, porém exige mais recursos no processamento desses dados. Também é possível usar a nuvem para deixar o processamento mais leve, dependendo assim da internet.
@@ -20,7 +20,7 @@ Exemplo 2: Generalização e Simplicidade
 Exemplo 3: Custo e Escalabilidade
 É possível criar um sistema capaz de suportar milhões de usuários, porém o nível exigido de infraestrutura e arquitetura serão amplamente mais custosos do que um sistema mais simples que suporta um número menos de pessoas
 
-#4. Fazer 2 ou 3 exemplos de classes UML:
+<h1> #4. Fazer 2 ou 3 exemplos de classes UML: </h1>
 ```mermaid
 classDiagram
 class Escola{
@@ -58,8 +58,8 @@ Escola "01" --> "0.." Professor: Contrata
 ```  
 
 
-#5. Fazer esses exemplos de UML em JAVA:
-```mermaid
+<h1> #5. Fazer esses exemplos de UML em JAVA: </h1>
+```markdown
 package org.example;
 
 import java.util.ArrayList;
@@ -196,106 +196,277 @@ public class SistemaEscolar {
         escola.listarProfessores();
     }
 }
+```
+<h1> #6. Fazer testes customizados: </h1>
 
+```markdown
 
-#6. Fazer testes customizados:
+import java.util.ArrayList;
+import java.util.List;
 
-Teste para alunos:
+class Escola {
+    private String nome;
+    private double notaAluno;
+    private int numeroClasse;
+    private List<Aluno> alunos;
+    private List<Professor> professores;
 
-classDiagram
-class TesteAluno {
-    // public static void main(String[] args) 
-    // Criando objetos Aluno com dados fixos
-        Aluno aluno1 = new Aluno("Maria Silva", 101, 8.5, 7.0);
-        Aluno aluno2 = new Aluno("João Pereira", 102, 5.0, 4.5);
-        Aluno aluno3 = new Aluno("Ana Costa", 103, 9.0, 9.5);
+    public Escola(String nome, double notaAluno, int numeroClasse) {
+        this.nome = nome;
+        this.notaAluno = notaAluno;
+        this.numeroClasse = numeroClasse;
+        this.alunos = new ArrayList<>();
+        this.professores = new ArrayList<>();
+    }
 
-   // Para exibir os resultados
-        System.out.println("=== TESTES DE ALUNO ===");
-        aluno1.exibirInfo();
-        aluno2.exibirInfo();
-        aluno3.exibirInfo();
+    public String getNome() {
+        return nome;
+    }
+
+    public void adicionarAluno(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    public void contratarProfessor(Professor professor) {
+        professores.add(professor);
+    }
+
+    public void listarAlunos() {
+        System.out.println("\n=== Alunos da escola " + nome + " ===");
+        for (Aluno a : alunos) {
+            System.out.println("- " + a.getNomeAluno() + " | Matrícula: " + a.getMatricula() + " | " + a.getAprovacao());
+        }
+    }
+
+    public void listarProfessores() {
+        System.out.println("\n=== Professores da escola " + nome + " ===");
+        for (Professor p : professores) {
+            System.out.println("- " + p.getNomeProfessor() + " | RA: " + p.getRaProfessor() + " | Salário: R$ " + p.getSalario());
+        }
+    }
+
+    public void listarAprovados() {
+        System.out.println("\n--- Alunos Aprovados ---");
+        for (Aluno a : alunos) {
+            if (a.getAprovacao().equalsIgnoreCase("Aprovado")) {
+                System.out.println(a.getNomeAluno());
+            }
+        }
+    }
 }
 
+class Aluno {
+    private String nomeAluno;
+    private int matricula;
+    private String aprovacao;
 
-Teste para produtos:
+    public Aluno(String nomeAluno, int matricula, String aprovacao) {
+        this.nomeAluno = nomeAluno;
+        this.matricula = matricula;
+        this.aprovacao = aprovacao;
+    }
 
-classDiagram
-class TesteProduto {
-    public static void main(String[] args) 
-        // Criando produtos
-        Produto p1 = new Produto(1, "Notebook", 3500.00, 10);
-        Produto p2 = new Produto(2, "Mouse", 150.00, 50);
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
 
-System.out.println("=== TESTES DE PRODUTO ===");
-        p1.exibirInfo();
-        p2.exibirInfo();
+    public int getMatricula() {
+        return matricula;
+    }
 
-//Teste de atualização de estoque
-        System.out.println("\nAdicionando 5 unidades ao estoque do Notebook...");
-        p1.atualizarEstoque(5);
-        p1.exibirInfo();
-
-//Teste de desconto
-        System.out.println("\nAplicando 10% de desconto no Mouse Gamer...");
-        double novoPreco = p2.calcularDesconto(10);
-        System.out.println("Preço com desconto: R$ " + novoPreco);
-
-//Teste combinado
-        System.out.println("\nResumo Final:");
-        p1.exibirInfo();
-        p2.exibirInfo();
+    public String getAprovacao() {
+        return aprovacao;
+    }
 }
 
-#7. Transformar o exemplo de JAVA em SQLite:
+class Professor {
+    private String nomeProfessor;
+    private int raProfessor;
+    private double salario;
 
--- ===============================
--- Tabela: Usuario
--- ===============================
-CREATE TABLE Usuario (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    public Professor(String nomeProfessor, int raProfessor, double salario) {
+        this.nomeProfessor = nomeProfessor;
+        this.raProfessor = raProfessor;
+        this.salario = salario;
+    }
+
+    public String getNomeProfessor() {
+        return nomeProfessor;
+    }
+
+    public int getRaProfessor() {
+        return raProfessor;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+}
+
+public class SistemaEscolar {
+    public static void main(String[] args) {
+        Escola escola = new Escola("Escola Modelo", 8.5, 101);
+
+        // Criando e adicionando alunos
+        escola.adicionarAluno(new Aluno("Guilherme", 123, "Aprovado"));
+        escola.adicionarAluno(new Aluno("Ana", 124, "Reprovada"));
+        escola.adicionarAluno(new Aluno("João", 125, "Aprovado"));
+        escola.adicionarAluno(new Aluno("Larissa", 126, "Aprovado"));
+
+        // Criando e adicionando professores
+        escola.contratarProfessor(new Professor("Marcos", 2001, 3500.0));
+        escola.contratarProfessor(new Professor("Luciana", 2002, 4200.0));
+        escola.contratarProfessor(new Professor("Paulo", 2003, 3900.0));
+
+        // Teste 1: Listar todos os alunos e professores
+        escola.listarAlunos();
+        escola.listarProfessores();
+
+        // Teste 2: Listar apenas alunos aprovados
+        escola.listarAprovados();
+
+        // Teste 3: Mostrar total de alunos e professores
+        System.out.println("\nTotal de alunos: " + escola.getNome() + " possui " + 4 + " alunos.");
+        System.out.println("Total de professores: " + 3);
+    }
+}
+
+```
+<h1> #7. Transformar o exemplo de JAVA em SQLite: </h1>
+
+CREATE TABLE Escola (
+    id_escola INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-    senha TEXT NOT NULL
+    notaAluno REAL,
+    numeroClasse INTEGER
 );
 
--- ===============================
--- Tabela: Livro
--- ===============================
-CREATE TABLE Livro (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    titulo TEXT NOT NULL,
-    autor TEXT NOT NULL,
-    ano_publicacao INTEGER,
-    disponivel BOOLEAN DEFAULT 1
+-- Criação da tabela Aluno
+CREATE TABLE Aluno (
+    id_aluno INTEGER PRIMARY KEY AUTOINCREMENT,
+    nomeAluno TEXT NOT NULL,
+    matricula INTEGER UNIQUE,
+    aprovacao TEXT,
+    id_escola INTEGER,
+    FOREIGN KEY (id_escola) REFERENCES Escola(id_escola)
 );
 
--- ===============================
--- Tabela: Biblioteca
--- ===============================
-CREATE TABLE Biblioteca (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT NOT NULL,
-    endereco TEXT,
-    telefone TEXT
+-- Criação da tabela Professor
+CREATE TABLE Professor (
+    id_professor INTEGER PRIMARY KEY AUTOINCREMENT,
+    nomeProfessor TEXT NOT NULL,
+    raProfessor INTEGER UNIQUE,
+    salario REAL,
+    id_escola INTEGER,
+    FOREIGN KEY (id_escola) REFERENCES Escola(id_escola)
 );
 
--- ===============================
--- Tabela: Emprestimo (tabela relacional sugerida)
--- ===============================
--- Observação: caso o código da Biblioteca relacione Livros e Usuários
--- (o que é comum), aqui está uma tabela de ligação para gerenciar empréstimos.
+-- Inserindo uma escola
+INSERT INTO Escola (nome, notaAluno, numeroClasse)
+VALUES ('Escola Modelo', 8.5, 101);
 
-CREATE TABLE Emprestimo (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    idUsuario INTEGER NOT NULL,
-    idLivro INTEGER NOT NULL,
-    dataEmprestimo DATE NOT NULL,
-    dataDevolucao DATE,
-    devolvido BOOLEAN DEFAULT 0,
-    FOREIGN KEY (idUsuario) REFERENCES Usuario(id),
-    FOREIGN KEY (idLivro) REFERENCES Livro(id)
-);
+-- Inserindo alunos
+INSERT INTO Aluno (nomeAluno, matricula, aprovacao, id_escola)
+VALUES
+('Guilherme', 123, 'Aprovado', 1),
+('Ana', 124, 'Reprovada', 1),
+('João', 125, 'Aprovado', 1),
+('Larissa', 126, 'Aprovado', 1);
+
+-- Inserindo professores
+INSERT INTO Professor (nomeProfessor, raProfessor, salario, id_escola)
+VALUES
+('Marcos', 2001, 3500.00, 1),
+('Luciana', 2002, 4200.00, 1),
+('Paulo', 2003, 3900.00, 1);
+
+-- Consultas de teste
+SELECT * FROM Escola;
+SELECT * FROM Aluno;
+SELECT * FROM Professor;
+
+-- Exemplo de junção (para listar alunos com o nome da escola)
+SELECT a.nomeAluno, a.aprovacao, e.nome AS escola
+FROM Aluno a
+JOIN Escola e ON a.id_escola = e.id_escola;
+
+-- Exemplo de junção (para listar professores com o nome da escola)
+SELECT p.nomeProfessor, p.salario, e.nome AS escola
+FROM Professor p
+JOIN Escola e ON p.id_escola = e.id_escola;
 
 
-#8. Usar ollama4j
+<h1> #8. Usar ollama4j </h1>
+
+```markdown
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+
+public class OllamaClient {
+
+    // Ajuste conforme sua instância do Ollama
+    private static final String OLLAMA_URL = "http://localhost:11434/api/generate";
+
+    private final HttpClient http;
+
+    public OllamaClient() {
+        this.http = HttpClient.newBuilder()
+                .connectTimeout(Duration.ofSeconds(5))
+                .build();
+    }
+
+    /**
+     * Envia um prompt para o Ollama e retorna a resposta (body como String).
+     * Se o Ollama usar outro formato de request/response, adapte o JSON enviado/recebido.
+     */
+    public String enviarPrompt(String model, String prompt) throws IOException, InterruptedException {
+        // Monta o JSON manualmente (sem bibliotecas externas).
+        // Se o Ollama pedir campos diferentes, ajuste aqui.
+        String json = "{"
+                + "\"model\": \"" + escapeJson(model) + "\","
+                + "\"prompt\": \"" + escapeJson(prompt) + "\""
+                + "}";
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(OLLAMA_URL))
+                .header("Content-Type", "application/json")
+                .timeout(Duration.ofSeconds(60))
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+
+        HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
+
+        int status = response.statusCode();
+        if (status >= 200 && status < 300) {
+            return response.body();
+        } else {
+            throw new IOException("Erro HTTP " + status + ": " + response.body());
+        }
+    }
+
+    // Função simples para escapar " e \ no JSON
+    private static String escapeJson(String s) {
+        return s.replace("\\", "\\\\").replace("\"", "\\\"");
+    }
+
+    public static void main(String[] args) {
+        OllamaClient client = new OllamaClient();
+        String model = "ollama-model-name"; // ex: "llama2", "ggml-..." — substitua
+        String prompt = "Diga algo sobre as universidades brasileiras";
+
+        try {
+            String resposta = client.enviarPrompt(model, prompt);
+            System.out.println("Resposta do Ollama:");
+            System.out.println(resposta);
+        } catch (Exception e) {
+            System.err.println("Falha ao chamar Ollama: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+```
