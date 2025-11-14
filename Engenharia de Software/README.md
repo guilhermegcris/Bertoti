@@ -429,7 +429,6 @@ import java.time.Duration;
 
 public class OllamaClient {
 
-    // Ajuste conforme sua instância do Ollama
     private static final String OLLAMA_URL = "http://localhost:11434/api/generate";
 
     private final HttpClient http;
@@ -440,13 +439,7 @@ public class OllamaClient {
                 .build();
     }
 
-    /**
-     * Envia um prompt para o Ollama e retorna a resposta (body como String).
-     * Se o Ollama usar outro formato de request/response, adapte o JSON enviado/recebido.
-     */
     public String enviarPrompt(String model, String prompt) throws IOException, InterruptedException {
-        // Monta o JSON manualmente (sem bibliotecas externas).
-        // Se o Ollama pedir campos diferentes, ajuste aqui.
         String json = "{"
                 + "\"model\": \"" + escapeJson(model) + "\","
                 + "\"prompt\": \"" + escapeJson(prompt) + "\""
@@ -469,7 +462,6 @@ public class OllamaClient {
         }
     }
 
-    // Função simples para escapar " e \ no JSON
     private static String escapeJson(String s) {
         return s.replace("\\", "\\\\").replace("\"", "\\\"");
     }
