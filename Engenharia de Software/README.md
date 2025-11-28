@@ -1,5 +1,5 @@
 ### Engenharia de Software
-## Atividades 1 a 8
+## Atividades 1 a 8 + Atividade Adicional
  
 <h1> #1. Comentar com suas palavras o primeiro trecho do livro Software Engineering at Google, Oreilly: </h1>
 
@@ -482,3 +482,5 @@ public class OllamaClient {
     }
 }
 ```
+
+<h1> #9. Atividade Adicional: </h1>
