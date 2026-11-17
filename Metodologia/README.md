@@ -1,3 +1,5 @@
+## Sobre mim
+
 Meu interesse pela área de tecnologia está correlata aos meus interesses juvenis. Com base na proximidade com computadores desde cedo, surgiu a curiosidade em entender como funcionava, tanto em relação ao hardware quanto ao software. Com o passar do tempo, esse interesse se tornou uma vontade de construir uma carreira profissional na área de tecnologia.
 
 Desde o segundo semestre de 2024, curso Banco de Dados na FATEC em São José dos Campos, onde venho aprofundando meus conhecimentos em programação, com o objetivo de me desenvolver profissionalmente e ingressar no mercado. Também possuo inglês avançado e experiência direta em desenvolvimento na empresa Bravetech, auxiliando na organização de dados e análises estratégicas.
